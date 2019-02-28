@@ -14,10 +14,8 @@ for date_of_game in date_parties:
         stats_of_game_per_day[date] += 1
     else:
         stats_of_game_per_day[date] = 1
-count = 0
 chrono_temp = 0
 for time_of_game in date_parties:
-    count += 1
     heure_start = time_of_game['Start time'][9:11]
     min_start = time_of_game['Start time'][12:14]
     heure_end = time_of_game['End time'][9:11]
@@ -31,6 +29,6 @@ for time_of_game in date_parties:
         chrono = (int(min_end) + 60) - int(min_start)
         print(chrono)
         chrono_temp += chrono
-average_chrono = chrono_temp / count
+average_chrono = chrono_temp / len(date_parties)
 stats_of_game_per_day['average_time'] = average_chrono
 print(stats_of_game_per_day)
